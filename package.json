@@ -1,0 +1,26 @@
+{
+  "name": "leakdetectionlasvegas",
+  "version": "1.0.0",
+  "description": "leak detection service in las vegas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravindrapareek06-bot/leakdetectionlasvegas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ravindrapareek06-bot/leakdetectionlasvegas/issues"
+  },
+  "homepage": "https://github.com/ravindrapareek06-bot/leakdetectionlasvegas#readme",
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^6.2.1",
+    "tailwindcss": "^3.4.19"
+  }
+}

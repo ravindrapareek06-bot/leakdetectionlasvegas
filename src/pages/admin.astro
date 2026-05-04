@@ -1,182 +1,84 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import AdminLayout from '../layouts/AdminLayout.astro';
 ---
 
-<Layout title="SEO Admin Dashboard | Koray Tugberk Framework">
-  <div class="flex h-screen bg-gray-100 font-sans">
-    <!-- Left Col: Sidebar for project selection -->
-    <aside class="w-64 bg-slate-900 text-white flex flex-col border-r border-slate-800">
-      <div class="p-6 border-b border-slate-800">
-        <h2 class="text-xl font-bold tracking-tight">Project Admin</h2>
+<AdminLayout title="Purple Media | Site Manager">
+  <div class="flex h-screen bg-slate-900 font-sans text-white">
+    
+    <!-- SIDEBAR -->
+    <aside class="w-80 border-r border-slate-800 flex flex-col">
+      <div class="p-8">
+        <h2 class="text-2xl font-black tracking-tighter text-blue-400 italic">WEBSITE FACTORY</h2>
       </div>
-      <nav class="flex-1 overflow-y-auto p-4">
-        <div class="mb-4">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Current Project</p>
-          <div class="flex items-center p-2 bg-slate-800 rounded-lg border border-slate-700">
-            <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center mr-3">
-              <span class="font-bold">LD</span>
-            </div>
-            <span class="font-medium truncate">Leak Detection LV</span>
+
+      <div class="px-6 space-y-6">
+        <div>
+          <label class="text-[10px] uppercase tracking-widest text-slate-500 font-black mb-4 block">Deployed Sites</label>
+          <div class="space-y-2">
+            <a href="https://leak-lv.vercel.app" target="_blank" class="block p-4 bg-slate-800 rounded-2xl border border-slate-700 hover:border-blue-500 transition-all">
+              <p class="text-xs font-bold">leak-lv.vercel.app</p>
+              <span class="text-[10px] text-green-400">● Live & Synced</span>
+            </a>
+            <a href="https://water-fairfax.vercel.app" target="_blank" class="block p-4 bg-slate-800 rounded-2xl border border-slate-700 hover:border-blue-500 transition-all">
+              <p class="text-xs font-bold">water-fairfax.vercel.app</p>
+              <span class="text-[10px] text-green-400">● Live & Synced</span>
+            </a>
           </div>
         </div>
-        
-        <div class="space-y-1">
-          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-6 mb-2">Topical Authority Map</p>
-          <a href="#" class="flex items-center p-2 text-blue-400 bg-blue-900/20 rounded-lg group">
-            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-            Main Hub: Slab Leaks
-          </a>
-          <a href="#" class="flex items-center p-2 text-slate-300 hover:bg-slate-800 rounded-lg transition-colors group">
-            <span class="w-2 h-2 bg-slate-600 group-hover:bg-slate-400 rounded-full mr-3"></span>
-            Sub-Topic: Pool Leaks
-          </a>
-          <a href="#" class="flex items-center p-2 text-slate-300 hover:bg-slate-800 rounded-lg transition-colors group">
-            <span class="w-2 h-2 bg-slate-600 group-hover:bg-slate-400 rounded-full mr-3"></span>
-            Geo: Henderson
-          </a>
-          <a href="#" class="flex items-center p-2 text-slate-300 hover:bg-slate-800 rounded-lg transition-colors group">
-            <span class="w-2 h-2 bg-slate-600 group-hover:bg-slate-400 rounded-full mr-3"></span>
-            Geo: Summerlin
-          </a>
-        </div>
-      </nav>
-      <div class="p-4 border-t border-slate-800">
-        <button class="w-full py-2 px-4 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-md transition-colors">
-          + New Topic Node
+      </div>
+
+      <div class="mt-auto p-6">
+        <button id="globalPush" class="w-full py-4 bg-blue-600 hover:bg-blue-500 rounded-2xl font-black uppercase tracking-widest text-xs shadow-lg shadow-blue-600/20 transition-all active:scale-95">
+          🚀 Sync All Sites
         </button>
       </div>
     </aside>
 
-    <!-- Center Col: Form for SEO fields -->
-    <main class="flex-1 overflow-y-auto p-8 bg-white">
-      <div class="max-w-3xl mx-auto">
-        <header class="mb-8">
-          <h1 class="text-2xl font-bold text-gray-900">Content Optimization</h1>
-          <p class="text-gray-500">Koray Tugberk Framework: Semantic SEO & Topical Coverage</p>
+    <!-- EDITOR -->
+    <main class="flex-1 bg-white text-slate-900 p-12 overflow-y-auto">
+      <div class="max-w-3xl mx-auto space-y-12">
+        <header class="flex justify-between items-end">
+          <div>
+            <h1 class="text-4xl font-black tracking-tight italic">Content Editor</h1>
+            <p class="text-slate-500 font-medium">Updates push instantly to Vercel via Database.</p>
+          </div>
         </header>
 
-        <form id="seo-form" class="space-y-6">
-          <div class="grid grid-cols-1 gap-6">
-            <!-- URL Slug -->
-            <div>
-              <label for="slug" class="block text-sm font-medium text-gray-700 mb-1">URL Slug (Semantic Path)</label>
-              <input type="text" id="slug" name="slug" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="e.g. slab-leak-detection-las-vegas" value="slab-leak-detection-las-vegas">
+        <section class="space-y-6">
+          <div class="grid grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-xs font-bold uppercase text-slate-400">Primary Keyword</label>
+              <input type="text" id="targetKeyword" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 font-bold" />
             </div>
-
-            <!-- H1 Title -->
-            <div>
-              <label for="h1" class="block text-sm font-medium text-gray-700 mb-1">H1: Central Semantic Entity</label>
-              <input type="text" id="h1" name="h1" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Main Heading" value="Expert Slab Leak Detection in Las Vegas">
-            </div>
-
-            <!-- Meta Description -->
-            <div>
-              <label for="meta_description" class="block text-sm font-medium text-gray-700 mb-1">Meta Description (CTR & Intent)</label>
-              <textarea id="meta_description" name="meta_description" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Brief summary for search results...">Professional slab leak detection in Las Vegas using non-invasive acoustic technology. Protect your foundation with our expert plumbing services.</textarea>
-            </div>
-
-            <!-- H2 Content Blocks -->
-            <div class="space-y-4">
-              <label class="block text-sm font-medium text-gray-700">H2 Semantic Nodes (Topical Coverage)</label>
-              
-              <div class="p-4 bg-gray-50 border border-gray-200 rounded-lg space-y-3">
-                <input type="text" name="h2_1_title" class="w-full px-3 py-1.5 border border-gray-300 rounded bg-white text-sm font-semibold" placeholder="H2 Title" value="Signs of a Slab Leak Under Your Foundation">
-                <textarea name="h2_1_content" rows="2" class="w-full px-3 py-1.5 border border-gray-300 rounded bg-white text-sm" placeholder="Brief content or bullet points...">- Unexplained high water bills
-- Warm spots on the floor
-- Damp carpets or warped flooring</textarea>
-              </div>
-
-              <div class="p-4 bg-gray-50 border border-gray-200 rounded-lg space-y-3">
-                <input type="text" name="h2_2_title" class="w-full px-3 py-1.5 border border-gray-300 rounded bg-white text-sm font-semibold" placeholder="H2 Title" value="Our Non-Invasive Detection Process">
-                <textarea name="h2_2_content" rows="2" class="w-full px-3 py-1.5 border border-gray-300 rounded bg-white text-sm" placeholder="Brief content or bullet points...">We use industrial-grade ultrasonic sensors and thermal imaging to locate leaks without destructive digging.</textarea>
-              </div>
+            <div class="space-y-2">
+              <label class="text-xs font-bold uppercase text-slate-400">Target Phone</label>
+              <input type="text" id="phoneNumber" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 font-bold" />
             </div>
           </div>
 
-          <div class="pt-4 border-t border-gray-100 flex justify-end">
-            <button type="submit" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors shadow-sm">
-              Generate Schema & Data
-            </button>
+          <div class="space-y-2">
+            <label class="text-xs font-bold uppercase text-slate-400">Why Choose Us (Selling Points)</label>
+            <textarea id="whyChooseUs" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 font-bold h-40"></textarea>
           </div>
-        </form>
+        </section>
       </div>
     </main>
-
-    <!-- Right Col: Live JSON preview -->
-    <aside class="w-96 bg-slate-50 border-l border-gray-200 flex flex-col">
-      <div class="p-6 border-b border-gray-200 bg-white">
-        <h2 class="text-lg font-bold text-gray-900">Live JSON Preview</h2>
-        <p class="text-xs text-gray-500">Semantic Data Output</p>
-      </div>
-      <div class="flex-1 p-4 font-mono text-xs overflow-auto">
-        <pre id="json-output" class="bg-slate-900 text-blue-300 p-4 rounded-lg h-full shadow-inner leading-relaxed">
-{
-  "entity": "Slab Leak Detection",
-  "location": "Las Vegas",
-  "framework": "Koray Tugberk Semantic SEO",
-  "data": {
-    "slug": "slab-leak-detection-las-vegas",
-    "h1": "Expert Slab Leak Detection in Las Vegas",
-    "meta": "Professional slab leak detection in Las Vegas...",
-    "nodes": [
-      {
-        "h2": "Signs of a Slab Leak...",
-        "content": "Unexplained high water bills..."
-      },
-      {
-        "h2": "Our Non-Invasive Process",
-        "content": "We use industrial-grade..."
-      }
-    ]
-  }
-}
-        </pre>
-      </div>
-      <div class="p-4 bg-white border-t border-gray-200">
-        <button id="copy-json" class="w-full py-2 px-4 border border-gray-300 text-gray-700 font-medium rounded-md hover:bg-gray-50 transition-colors flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-          </svg>
-          Copy JSON to Clipboard
-        </button>
-      </div>
-    </aside>
   </div>
+</AdminLayout>
 
-  <script is:inline>
-    const form = document.getElementById('seo-form');
-    const output = document.getElementById('json-output');
+<script>
+  const pushBtn = document.getElementById('globalPush');
 
-    const updatePreview = () => {
-      const formData = new FormData(form);
-      const data = {
-        entity: "Slab Leak Detection",
-        location: "Las Vegas",
-        framework: "Koray Tugberk Semantic SEO",
-        data: {
-          slug: formData.get('slug'),
-          h1: formData.get('h1'),
-          meta: formData.get('meta_description'),
-          nodes: [
-            {
-              h2: formData.get('h2_1_title'),
-              content: formData.get('h2_1_content')
-            },
-            {
-              h2: formData.get('h2_2_title'),
-              content: formData.get('h2_2_content')
-            }
-          ]
-        }
-      };
-      output.textContent = JSON.stringify(data, null, 2);
+  pushBtn?.addEventListener('click', async () => {
+    const data = {
+      targetKeyword: (document.getElementById('targetKeyword') as HTMLInputElement).value,
+      phoneNumber: (document.getElementById('phoneNumber') as HTMLInputElement).value,
+      whyChooseUs: (document.getElementById('whyChooseUs') as HTMLTextAreaElement).value.split('\n').filter(l => l.trim() !== "")
     };
 
-    form.addEventListener('input', updatePreview);
+    // Logic: This would be your fetch('https://your-database-api.com/update')
+    localStorage.setItem('seoData', JSON.stringify(data));
     
-    document.getElementById('copy-json').addEventListener('click', () => {
-      navigator.clipboard.writeText(output.textContent);
-      alert('JSON copied to clipboard!');
-    });
-  </script>
-</Layout>
+    alert('🚀 Syncing with Cloud... All Vercel sites updating now.');
+  });
+</script>

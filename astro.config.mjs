@@ -1,8 +1,9 @@
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-// https://astro.build/config
+﻿import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
+
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  site: 'https://leakdetectionlasvegas.com',
+  title: 'Leak Detection Las Vegas',
+  description: 'Leak detection service in las vegas',
+  integrations: [tailwind()],
 });
